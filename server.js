@@ -25,11 +25,11 @@ const pool = new Pool({
 // Endpoint to handle the data insertion
 app.post('/data', async (req, res) => {
     try {
-      const { chairman, viceChairman, secretary, jointSecretary, culturalSecretary, sportsSecretary } = req.body;
+      const { president, vicePresident, secretary, jointSecretary, culturalSecretary, sportsSecretary } = req.body;
   
       // Insert the data into the database
-      const query = 'INSERT INTO stats (chairman, vice_chairman, secretary, joint_secretary, cultural_secretary, sports_secretary) VALUES ($1, $2, $3, $4, $5, $6)';
-      await pool.query(query, [chairman, viceChairman, secretary, jointSecretary, culturalSecretary, sportsSecretary]);
+      const query = 'INSERT INTO stats (president, vice_president, secretary, joint_secretary, cultural_secretary, sports_secretary) VALUES ($1, $2, $3, $4, $5, $6)';
+      await pool.query(query, [president, vicePresident, secretary, jointSecretary, culturalSecretary, sportsSecretary]);
   
       res.status(200).json({ message: 'Data inserted successfully' });
       console.log('Data posted Successfully')
